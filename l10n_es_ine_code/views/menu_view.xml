@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem
+        id="menu_ine_update_wizard"
+        name="Update INE municipality codes"
+        parent="contacts.menu_localisation"
+        action="action_ine_update_wizard"
+        sequence="90"
+        groups="base.group_system"
+    />
+</odoo>

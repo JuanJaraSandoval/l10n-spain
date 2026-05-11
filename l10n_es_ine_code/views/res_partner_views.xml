@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
-    <record id="res_partner_view_form" model="ir.ui.view">
+    <record id="res_partner_view_form_ine" model="ir.ui.view">
         <field name="name">res.partner.form.ine.code</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
-            <field name="city" position="after">
-                <field
-                    name="ine_code_id"
-                    options="{'no_create': True, 'no_open': True}"
-                    placeholder="INE Code (auto-filled from city)"
-                />
-            </field>
+            <xpath expr="//div[hasclass('o_address_format')]" position="inside">
+                <div class="o_address_ine_code">
+                    <field
+                        name="ine_code"
+                        readonly="1"
+                        placeholder="Auto-filled from city"
+                        invisible="not ine_code"
+                    />
+                </div>
+            </xpath>
         </field>
     </record>
-
 </odoo>

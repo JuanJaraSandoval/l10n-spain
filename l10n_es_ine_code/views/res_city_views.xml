@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
-    <record id="res_city_view_form" model="ir.ui.view">
+    <record id="res_city_view_form_ine" model="ir.ui.view">
         <field name="name">res.city.form.ine.code</field>
         <field name="model">res.city</field>
         <field name="inherit_id" ref="base_location.view_city_form" />
         <field name="arch" type="xml">
             <field name="country_id" position="after">
-                <field name="ine_code_id" />
+                <separator string="INE Codes" />
+                <field name="ine_code" readonly="1" />
+                <field name="ine_code_state" readonly="1" />
+                <field name="ine_code_province" readonly="1" />
+                <field name="ine_code_municipality" readonly="1" />
+                <field name="ine_code_control_digit" readonly="1" />
             </field>
         </field>
     </record>
 
-    <record id="res_city_view_tree" model="ir.ui.view">
-        <field name="name">res.city.tree.ine.code</field>
+    <record id="res_city_view_list_ine" model="ir.ui.view">
+        <field name="name">res.city.list.ine.code</field>
         <field name="model">res.city</field>
         <field name="inherit_id" ref="base_location.view_city_tree_inherit" />
         <field name="arch" type="xml">
             <field name="country_id" position="after">
-                <field name="ine_code_id" optional="hide" />
+                <field name="ine_code" optional="show" />
+                <field name="ine_code_province" optional="hide" />
+                <field name="ine_code_municipality" optional="hide" />
             </field>
         </field>
     </record>
-
 </odoo>
